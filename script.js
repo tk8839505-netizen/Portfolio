@@ -41,6 +41,56 @@ window.addEventListener("scroll",()=>{
         }
     });
 
-    console.log(window.scrollY);
-    //console.log(current);
-});
+    });
+
+    const typingText = document.getElementById("typing-text");
+
+    const professions = [
+
+        "Web Developer",
+        "Frontend Developer",
+        "JavaScript Developer",
+        "Web Designer"
+    ];
+    let professionIndex = 0;
+    let letterIndex = 0;
+    let isDeleting = false;
+
+    function type(){
+       
+        const currentWord = professions[professionIndex];
+
+        if(!isDeleting){
+
+            typingText.textContent = currentWord.slice(0,letterIndex);
+
+            letterIndex++;
+
+            if(letterIndex > currentWord.length){
+
+                isDeleting = true;
+            }
+           
+        } 
+         else{
+
+            letterIndex--;
+
+            typingText.textContent = currentWord.slice(0,letterIndex);
+
+            if(letterIndex ==0){
+
+                isDeleting=false;
+                 
+                professionIndex++;
+
+                if(professionIndex >= professions.length){
+                    professionIndex=0;
+                }
+            }
+        }
+     
+    }
+     setInterval(type,150);
+
+    
