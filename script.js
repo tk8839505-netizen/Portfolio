@@ -93,4 +93,68 @@ window.addEventListener("scroll",()=>{
     }
      setInterval(type,150);
 
+
+    //  about section
+
+    const reveals = document.querySelectorAll("#about,#skills ,#projects,#contact");
+
+    console.log(reveals);
+
+    function reveal(){
+
+        const windowHeight = window.innerHeight;
+
+        reveals.forEach((item)=>{
+            
+            const elementTop = item.getBoundingClientRect().top;
+
+            if(elementTop <= windowHeight-50)
+            {
+                item.classList.add("show");
+            } 
+            else{
+
+                item.classList.remove("show");
+             }
+
+        });
+    }
+
+    window.addEventListener("scroll",reveal);
+
+    reveal();
+
+    const progressBar = document.querySelector(".progress-bar");
+
+    window.addEventListener("scroll",()=>{
+
+        const scrollTop = window.scrollY;
+
+        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+        const scrollPercent = (scrollTop / documentHeight) * 100;
+
+        progressBar.style.width = scrollPercent +"%";
+    });
+
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll",()=>{
+          
+        if(window.scrollY > 300){
+            topBtn.style.display = "block";
+        }
+        else{
+
+            topBtn.style.display = "none";
+        }
+    });
+
+    topBtn.addEventListener("click",()=>{
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    });
+
     
