@@ -157,4 +157,108 @@ window.addEventListener("scroll",()=>{
         });
     });
 
+
+
+
     
+// form:
+
+    const successMessage = document.getElementById("successMessage");
+
+    const form = document.getElementById("contactForm");
+
+    const nameInput = document.getElementById("name");
+    const nameError = document.getElementById("nameError");
+
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+
+    const subjectInput = document.getElementById("subject");
+    const subjectError = document.getElementById("subjectError");
+
+    const messageInput = document.getElementById("message");
+    const messageError = document.getElementById("messageError");
+
+
+    //email pattren
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // from submit
+    form.addEventListener("submit",(event)=>{
+      
+       event.preventDefault();
+
+       let isValid = true;
+
+
+       if(nameInput.value.trim()=== ""){
+
+        nameError.textContent = "please enter your name.";
+
+        isValid=false;
+
+       }else{
+        nameError.textContent = "";
+       }
+
+
+       const email = emailInput.value.trim();
+
+       if(email === ""){
+
+          emailError.textContent = "please enter your email."
+
+          isValid= false;
+       }
+   
+       else if(!emailPattern.test(email)){
+         emailError.textContent = "please enter a valid email.";
+
+         isValid = false;
+       }
+       else{
+         emailError.textContent = "";
+       }
+
+       if(subjectInput.value.trim()===""){
+
+         subjectError.textContent=
+         "Please enter subject.";
+
+           isValid=false;
+
+       }
+       else{
+
+        subjectError.textContent="";
+
+      }
+
+
+     if(messageInput.value.trim()===""){
+
+     messageError.textContent=
+     "Please enter your message.";
+
+     isValid=false;
+
+     }
+     else{
+
+      messageError.textContent="";
+
+     }
+
+     if(isValid){
+
+      successMessage.style.display = "block";
+
+      form.reset();
+
+       setTimeout(()=>{
+
+        successMessage.style.display = "none";
+
+      },3000);
+    }
+});   

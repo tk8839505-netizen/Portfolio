@@ -32,11 +32,12 @@
 
             </ul>
 
-            <div class="menu-toggle">
+               <div class="menu-toggle">
 
-                ☰
+                   ☰
 
-            </div>
+               </div>
+
         </nav>
     </header>
 
@@ -168,9 +169,9 @@
 
                <div class="project-buttons">
 
-                 <a href="#" class="btn">Live Demo</a>
+                 <a href="#"  class="btn" target="_blank">Live Demo</a>
 
-                 <a href="#" class="btn">GitHub</a>
+                 <a href="https://github.com/tk8839505-netizen/Portfolio" class="btn">GitHub</a>
 
                </div>
 
@@ -212,7 +213,7 @@
 
              <h2>Contact Me</h2>
 
-             <form>
+             <form id="contactForm">
 
                 <div class="input-group">
 
@@ -222,8 +223,9 @@
 
                   <input type="text" 
                   id="name" 
-                  placeholder="Enter your name"
-                  >
+                  placeholder="Enter your name" >
+
+                  <small class="error" id="nameError"></small>
 
                 </div>
 
@@ -236,8 +238,9 @@
                    <input 
                       type="email"  
                       id="email"
-                      placeholder="Enter your email"
-                      >
+                      placeholder="Enter your email">
+
+                      <small class="error" id="emailError"></small>
 
                 </div>
 
@@ -250,8 +253,9 @@
                    <input 
                      type="text" 
                      id="subject"
-                     placeholder=" Enter subject"
-                     >
+                     placeholder=" Enter subject">
+
+                     <small class="error" id="subjectError"></small>
 
                 </div>
 
@@ -266,6 +270,9 @@
                       rows="6"
                       placeholder="Write your message">
                     </textarea>
+                     
+                    <small class="error" id="messageError"></small>
+
                 </div>
 
                 <button type="submit" class="btn">
@@ -273,6 +280,12 @@
                     Send Message
 
                 </button>
+
+                <div id="successMessage" class="success-message">
+
+                  ✔ Message Sent Successfully!
+
+                </div>
 
              </form>
         </div>
@@ -322,6 +335,8 @@
     </footer>
 
     <button id="topBtn">↑</button>
+
+    
 
     <script src="script.js"></script>
 </body>
