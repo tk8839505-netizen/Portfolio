@@ -142,6 +142,11 @@ nav ul li a.active{
     transform: scale(1.08);
     box-shadow: 0 10px 30px rgba(0,0,0,.3);
 }
+#typing-text{
+
+    display: inline-block;
+    min-width: 300px;
+}
 
 
 .about,.skills,.projects,.contact{
